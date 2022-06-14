@@ -7,5 +7,6 @@ class Student < Person
   end
 
   def play_hooky
+    "¯\(ツ)/¯"
   end
 end
