@@ -16,6 +16,10 @@ class Person
     end
   end
 
+  def get_id
+    @id
+  end
+
   private
 
   def of_age?
