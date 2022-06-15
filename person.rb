@@ -1,11 +1,13 @@
 $LOAD_PATH << '.'
-require_relative("nameable.rb")
+require 'nameable'
+require 'capitalize_decorator'
+require 'trimmer_decorator'
 
 class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(id: nil, name = "Unknown", age, parent_permission = true)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = id || Random.rand(1..1000)
     @name = name
@@ -21,7 +23,7 @@ class Person < Nameable
     end
   end
 
-  def get_id
+  def person_id
     @id
   end
 
