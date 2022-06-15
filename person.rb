@@ -1,12 +1,17 @@
-class Person
-  def initialize(id, name = 'Unknown', age, parent_permission = true)
-    @id = rand(1..1000)
+$LOAD_PATH << '.'
+require_relative("nameable.rb")
+
+class Person < Nameable
+  attr_accessor :name, :age
+  attr_reader :id
+
+  def initialize(id: nil, name = "Unknown", age, parent_permission = true)
+    super()
+    @id = id || Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
   end
-
-  attr_accessor :name, :age
 
   def can_use_services?
     if of_age? || @parent_permission
@@ -20,7 +25,9 @@ class Person
     @id
   end
 
-  private
+  def correct_name
+    @name
+  end
 
   def of_age?
     @age >= 18
