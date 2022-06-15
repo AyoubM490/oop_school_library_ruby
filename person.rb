@@ -2,10 +2,11 @@ $LOAD_PATH << '.'
 require 'nameable'
 require 'capitalize_decorator'
 require 'trimmer_decorator'
+require 'rental'
 
 class Person < Nameable
-  attr_accessor :name, :age
-  attr_reader :id
+  attr_accessor :name, :age, :id
+  attr_reader :rentals
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
@@ -13,6 +14,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   def can_use_services?
@@ -33,5 +35,10 @@ class Person < Nameable
 
   def of_age?
     @age >= 18
+  end
+
+  def add_rental(rental)
+    rentals.push(rental) unless rentals.include?(rental)
+    rental.person = self
   end
 end
