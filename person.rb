@@ -1,6 +1,5 @@
 $LOAD_PATH << '.'
 require 'nameable'
-require 'capitalize_decorator'
 require 'trimmer_decorator'
 require 'rental'
 
