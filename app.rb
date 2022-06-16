@@ -1,10 +1,10 @@
 $LOAD_PATH << '.'
-require './person.rb'
-require './student.rb'
-require './teacher.rb'
-require './classroom.rb'
-require './book.rb'
-require './rental.rb'
+require './person'
+require './student'
+require './teacher'
+require './classroom'
+require './book'
+require './rental'
 
 class App
   def initialize
@@ -35,7 +35,7 @@ class App
     get_option option
   end
 
-  def get_option(input)
+  def get_option(input) # rubocop:todo Metrics/CyclomaticComplexity
     case input
     when '1'
       list_all_books

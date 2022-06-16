@@ -1,6 +1,6 @@
 $LOAD_PATH << '.'
-#!/usr/bin/env ruby
-require './app.rb'
+# !/usr/bin/env ruby
+require './app'
 
 def main
   app = App.new
