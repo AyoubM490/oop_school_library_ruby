@@ -1,6 +1,5 @@
 $LOAD_PATH << '.'
 require 'nameable'
-require 'capitalize_decorator'
 require 'trimmer_decorator'
 require 'rental'
 
@@ -8,7 +7,7 @@ class Person < Nameable
   attr_accessor :name, :age, :id
   attr_reader :rentals
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission = true) # rubocop:todo Style/OptionalBooleanParameter
     super()
     @id = id || Random.rand(1..1000)
     @name = name

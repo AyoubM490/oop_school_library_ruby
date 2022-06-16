@@ -1,7 +1,9 @@
 require './person'
 
 class Teacher < Person
-  def initialize(specialization, name = 'Unknown', parent_permission: true)
+  # rubocop:todo Style/OptionalBooleanParameter
+  def initialize(specialization, name = 'Unknown', parent_permission = true)
+    # rubocop:enable Style/OptionalBooleanParameter
     super(age, name, parent_permission)
     @specialization = specialization
   end
